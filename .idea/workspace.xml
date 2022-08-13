@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="039c9023-f012-4130-8c34-ba7bfe49dc64" name="Changes" comment="" />
+    <list default="true" id="039c9023-f012-4130-8c34-ba7bfe49dc64" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/next-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/next-app/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/next-app/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -32,13 +38,22 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/sonkwangeun/Documents/GitHub/next-boiler-plate",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/sonkwangeun/Documents/GitHub/next-boiler-plate/next-app/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "/Users/sonkwangeun/Documents/GitHub/next-boiler-plate/next-app/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/next-app" />
+      <recent name="$PROJECT_DIR$/next-app/pages/minigame" />
+      <recent name="$PROJECT_DIR$/next-app/images" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660309075485</updated>
       <workItem from="1660309079621" duration="1397000" />
+      <workItem from="1660387124748" duration="6105000" />
     </task>
     <servers />
   </component>
