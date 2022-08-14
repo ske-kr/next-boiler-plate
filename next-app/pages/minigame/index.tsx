@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import JDH from "../../images/JDH.png";
-import KHM from "../../images/KHM.png";
-import LCK from "../../images/LCK.png";
-import LGJ from "../../images/LGJ.png";
+import JDH from "../../images/JDH.jpeg";
+import KHM from "../../images/KHM.jpeg";
+import LCK from "../../images/LCK.jpeg";
+import LGJ from "../../images/LGJ.jpeg";
 import PYJ from "../../images/PYJ.png";
-import SKE from "../../images/SKE.png";
-import SYT from "../../images/SYT.png";
+import SKE from "../../images/SKE.jpeg";
+import SYT from "../../images/SYT.jpeg";
 import RoulettePro from "react-roulette-pro";
 import "react-roulette-pro/dist/index.css";
 
@@ -118,6 +118,9 @@ export default function Minigame() {
       />
       <button onClick={handleStart}>Start</button>
       <div style={{ height: "40px" }}></div>
+      <div>
+        여기는 사진올리는 게시판같은거 넣으면 좋을듯 사진보관함마냥 년도별로
+      </div>
       {toggleResult && (
         <div
           style={{
