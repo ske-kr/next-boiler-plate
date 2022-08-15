@@ -120,6 +120,7 @@ export default function Minigame() {
       <div style={{ height: "40px" }}></div>
       <div>
         여기는 사진올리는 게시판같은거 넣으면 좋을듯 사진보관함마냥 년도별로
+        <div>성계님화이팅</div>
       </div>
       {toggleResult && (
         <div
