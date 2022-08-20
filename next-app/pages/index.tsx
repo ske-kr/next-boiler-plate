@@ -1,3 +1,5 @@
-export default function Home({ services, footerLinks }) {
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export default function Home() {
   return <div>홈페이지</div>;
 }
