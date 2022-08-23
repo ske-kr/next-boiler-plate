@@ -4,7 +4,7 @@ import Image from "next/image";
 import ModalBase from "../components/ModalBase";
 import LoginModal from "../components/LoginModal";
 import loginIcons from "../images/loginIcons.jpg";
-import { log } from "util";
+import Button from "react-bootstrap/Button";
 
 export default function Home() {
   const [isActive, setIsActive] = useState(false);
@@ -150,7 +150,7 @@ export default function Home() {
                 onKeyPress={onKeyPress}
               />
             </div>
-            <button>Log in</button>
+            <Button variant="primary">Log in</Button>
           </div>
         </LoginModal>
       </ModalBase>
