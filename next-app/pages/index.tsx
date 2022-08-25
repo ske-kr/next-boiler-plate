@@ -15,10 +15,6 @@ export default function Home() {
   const onClickCodeListOn = () => {
     setIsActive(true);
   };
-  // let { user, error } = await supabase.auth.signInWithPassword({
-  //     email: 'someone@email.com',
-  //     password: 'FXtzKmvVafckLioAIMcr'
-  // })
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {

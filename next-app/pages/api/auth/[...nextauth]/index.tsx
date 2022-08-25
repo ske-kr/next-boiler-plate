@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 import Google from "next-auth/providers/google";
 import Kakao from "next-auth/providers/kakao";
+import { supabaseClient } from "../../../../src/utils/supabase";
 
 const options = {
   providers: [
@@ -28,7 +29,12 @@ const options = {
       async authorize(credentials, req) {
         console.log(credentials);
         // Add logic here to look up the user from the credentials supplied
-        const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
+        // const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
+        let { user, error } = await supabaseClient.auth.signIn({
+          email: credentials?.username,
+          password: credentials?.password,
+        });
+        console.log(user);
 
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
