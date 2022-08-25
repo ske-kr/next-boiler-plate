@@ -15,6 +15,10 @@ export default function Home() {
   const onClickCodeListOn = () => {
     setIsActive(true);
   };
+  // let { user, error } = await supabase.auth.signInWithPassword({
+  //     email: 'someone@email.com',
+  //     password: 'FXtzKmvVafckLioAIMcr'
+  // })
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
@@ -159,6 +163,12 @@ export default function Home() {
             </Button>
             <Button onClick={() => signIn("Kakao")} variant="primary">
               Kakao Log in
+            </Button>
+            <Button
+              onClick={() => signIn("CredentialsProvider")}
+              variant="primary"
+            >
+              Email Log in
             </Button>
             <Button onClick={() => signOut()} variant="primary">
               Sign Out
