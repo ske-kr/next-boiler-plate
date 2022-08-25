@@ -17,7 +17,7 @@ const options = {
     }),
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
-      name: "Credentials",
+      name: "Go-fit account",
       credentials: {
         username: {
           label: "Username",
@@ -30,12 +30,13 @@ const options = {
         console.log(credentials);
         // Add logic here to look up the user from the credentials supplied
         // const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
-        let { user, error } = await supabaseClient.auth.signIn({
+        let { user, session, error } = await supabaseClient.auth.signIn({
           email: credentials?.username,
           password: credentials?.password,
         });
         console.log(user);
-
+        console.log(session);
+        user["name"] = session.access_token;
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
           return user;
