@@ -7,7 +7,9 @@
 
 # testing
 /coverage
-
+.idea
+.idea/*.xml
+*.iml
 # next.js
 /.next/
 /out/
