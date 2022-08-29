@@ -11,8 +11,8 @@ const options = {
       clientSecret: process.env.GOOGLE_SECRET,
     }),
     Kakao({
-      clientId: process.env.KAKAO_ID,
-      clientSecret: process.env.KAKAO_SECRET,
+      clientId: "a0de83e17232e3f6ee08c28b5aafa78a",
+      clientSecret: "KAKAOSECRET",
     }),
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
@@ -43,6 +43,23 @@ const options = {
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, account }) {
+      // Persist the OAuth access_token to the token right after signin
+      if (account) {
+        token.accessToken = account.access_token;
+      }
+      console.log(token);
+      console.log(account);
+      return token;
+    },
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token from a provider.
+      session.accessToken = token.accessToken;
+      console.log(session);
+      return session;
+    },
+  },
 };
 
 // @ts-ignore

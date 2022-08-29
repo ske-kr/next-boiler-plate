@@ -25,7 +25,7 @@ export default function Home() {
       console.log("logined");
     }
   };
-
+  console.log(data);
   const onClickModalOff = () => {
     setIsActive(false);
   };
