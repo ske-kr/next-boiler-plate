@@ -16,15 +16,18 @@ export const AppBarBase = () => {
     return (
         <AppBar
             style={{ backgroundColor: 'white' }}
+            sx={{
+                width: '100%'
+              }}
+            
+            position="fixed"
             enableColorOnDark
         >
             <StyledToolbar>
                 <Typography
                     variant="h5"
-                    noWrap
                     component="div"
                     color={'black'}
-                    sx={{ flexGrow: 1, alignSelf: 'flex-end' }}
                 >
                     Logo
                 </Typography>

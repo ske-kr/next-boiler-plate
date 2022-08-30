@@ -6,7 +6,7 @@ import LoginModal from "../components/LoginModal";
 import loginIcons from "../images/loginIcons.jpg";
 import Button from "react-bootstrap/Button";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { AppBarBase } from "../components";
+import { AppBarBase, MainLayout, ReportMain } from "../components";
 
 export default function Home() {
   const [isActive, setIsActive] = useState(false);
@@ -32,9 +32,10 @@ export default function Home() {
   };
   return (
     <>
-      <AppBarBase />
-      <>
-        <div style={{marginTop: 200}}>
+      <MainLayout>
+        <ReportMain />
+      </MainLayout>
+        {/* <div style={{marginTop: 200}}>
           <div>홈페이지</div>
           <div>{data?.user?.name}</div>
           <div>{data?.user?.email}</div>
@@ -180,8 +181,7 @@ export default function Home() {
               </div>
             </LoginModal>
           </ModalBase>
-        </div>
-      </>
+        </div> */}
     </>
   );
 }
