@@ -11,11 +11,10 @@ interface MainLayoutProps extends HTMLAttributes<HTMLDivElement> {
 
 
 export const MainLayout = ({ children, ...props }: MainLayoutProps) => {
-
     const StyledMainLayout = styled.div`
-  height: 100%;
+        height: 100%;
 
-  .main-nav__inner {
+    .main-nav__inner {
     height: 100%;
   }
 `;
@@ -27,8 +26,9 @@ export const MainLayout = ({ children, ...props }: MainLayoutProps) => {
                 <AppBarBase />
                 <Box
                     component="nav"
-                    sx={{ width: { sm: 240 }, flexShrink: { sm: 0 } }}
-                    style={{marginTop: 150}}
+                    sx={{ width: { sm: 240 }, flexShrink: { sm: 0 } ,border:'1px, grey, solid'}}
+                    style={{ marginTop: 100}}
+                    
                 >
                     <MainNav />
                 </Box>
@@ -39,7 +39,7 @@ export const MainLayout = ({ children, ...props }: MainLayoutProps) => {
                         padding: 24, marginTop: 150
                     }}
                 >
-                    {children} 
+                    {children}
                 </Box>
             </Box>
         </StyledMainLayout>

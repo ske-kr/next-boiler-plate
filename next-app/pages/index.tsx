@@ -33,9 +33,7 @@ export default function Home() {
   return (
     <>
       <MainLayout>
-        <ReportMain />
-      </MainLayout>
-        {/* <div style={{marginTop: 200}}>
+        <div >
           <div>홈페이지</div>
           <div>{data?.user?.name}</div>
           <div>{data?.user?.email}</div>
@@ -181,7 +179,9 @@ export default function Home() {
               </div>
             </LoginModal>
           </ModalBase>
-        </div> */}
+        </div>
+      </MainLayout>
+
     </>
   );
 }

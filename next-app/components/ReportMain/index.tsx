@@ -6,7 +6,7 @@ export const ReportMain = () => {
     const [view, setView] = React.useState('list');
 
     const handleChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => {
-      setView(nextView);
+    setView(nextView);
     };
 
     return (
@@ -18,13 +18,13 @@ export const ReportMain = () => {
                 onChange={handleChange}
             >
                 <ToggleButton value="list" aria-label="list">
-                    <button><img src="./img/google.png" alt="list"/></button>
+                
                 </ToggleButton>
                 <ToggleButton value="module" aria-label="module">
-                    <button><img src="./img/google.png" alt="module" /></button>
+                    
                 </ToggleButton>
                 <ToggleButton value="full" aria-label="full">
-                    <button><img src="./img/google.png" alt="full"  /></button>
+
                 </ToggleButton>
             </ToggleButtonGroup>
         </>

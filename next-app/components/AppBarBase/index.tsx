@@ -17,9 +17,10 @@ export const AppBarBase = () => {
         <AppBar
             style={{ backgroundColor: 'white' }}
             sx={{
-                width: '100%'
-              }}
-            
+                width: '100%',
+                boxShadow: 1
+            }}
+
             position="fixed"
             enableColorOnDark
         >
