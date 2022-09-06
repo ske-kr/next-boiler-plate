@@ -32,7 +32,7 @@ export default function Home() {
   };
   return (
     <>
-      <MainLayout>
+      
         <div >
           <div>홈페이지</div>
           <div>{data?.user?.name}</div>
@@ -180,7 +180,6 @@ export default function Home() {
             </LoginModal>
           </ModalBase>
         </div>
-      </MainLayout>
 
     </>
   );
