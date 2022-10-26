@@ -11,7 +11,7 @@ const options = {
       clientSecret: process.env.GOOGLE_SECRET,
     }),
     Kakao({
-      clientId: "a0de83e17232e3f6ee08c28b5aafa78a",
+      clientId: "kimjos client key",
       clientSecret: "KAKAOSECRET",
     }),
     CredentialsProvider({
