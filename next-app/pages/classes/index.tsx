@@ -1,7 +1,6 @@
 import Image from "next/image";
-import ClassListCard from "../../src/components/classListCard";
 import { getClassesList } from "../../src/services/database";
-import { Classes } from "../../src/utils/entities";
+import { Classes } from "../../src/utils/database.entities";
 import styles from "../../styles/Home.module.css";
 
 function ClassList({ gymList }: any) {
@@ -13,7 +12,7 @@ function ClassList({ gymList }: any) {
 
       <main className={styles.main}>
         {gymList.map((gymList: Classes, i: number) => {
-          return <ClassListCard gymList={gymList} key={i}></ClassListCard>;
+          console.log(gymList);
         })}
       </main>
 

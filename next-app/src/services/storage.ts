@@ -1,4 +1,4 @@
-import { supabaseClient } from "../utils/supabase";
+import { supabaseClient } from "../utils/supabase.key";
 
 export async function getStorageImage(folderName: string, imgAddress: string) {
   const { data, error } = await supabaseClient.storage
