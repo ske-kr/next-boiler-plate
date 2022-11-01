@@ -1,48 +1,54 @@
-import TextField from "@mui/material/TextField";
+import { FormControl, Select } from "@chakra-ui/react";
 import { getDay } from "date-fns";
-import { getClassAvailability } from "../../src/services/database";
-import { Weekday } from "../../src/utils/weekday.enum";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import { getClassAvailability } from "../../src/services/database.read.api";
 
 // TODO:
 // 1. 유저 날짜 선택
 // 2. DB에서 가능한 시간 검색 (filter: class, weekday)
 
 export default function MakeReservation({ classAvailability }) {
-  console.log("class times: ", classAvailability);
+  const currDate = new Date(Date.now());
+  let [classTimes, setClassTimes] = useState(classAvailability);
+  let [reserveDate, setReserveDate] = useState(currDate);
 
-  const logIt = async (event) => {
-    event.preventDefault();
+  const getAvailableTimes = async (date) => {
+    const reservationDate = new Date(date);
+    setReserveDate(reservationDate);
 
-    const date = event.target.date.value;
-    alert(`date: ${date}`);
-    const weekday = getDay(new Date(date));
-    alert(`weekday: ${weekday === Weekday.Wed}`);
+    const reservationWeekday = getDay(reservationDate); //get weekday(Sun ~ Sat) of date
+    let newClassTimes = await getClassAvailability(8, reservationWeekday);
+    setClassTimes(newClassTimes);
+  };
+
+  const showClassTimeList = () => {
+    return classTimes.map((exerciseClass) => {
+      return <option>{`${exerciseClass.time}`}</option>;
+    });
   };
 
   return (
     <>
-      <h1>hello</h1>
-      <form onSubmit={logIt}>
-        <input type="text" id="inpu" />
-        <TextField
-          id="date"
-          label="수업 예약"
-          type="date"
-          defaultValue="2022-10-01"
-          sx={{ width: 220 }}
-          InputLabelProps={{
-            shrink: true,
-          }}
+      <FormControl>
+        <DatePicker
+          selected={reserveDate}
+          onChange={(date) => getAvailableTimes(date)}
+          validate={showClassTimeList}
         />
-        {/* <Button type="submit">Text</Button> */}
-        <button type="submit">submit</button>
-      </form>
+
+        <Select placeholder="Select option">{showClassTimeList()}</Select>
+      </FormControl>
     </>
   );
 }
 
-export async function getStaticProps() {
-  const classAvailability = await getClassAvailability(1, Weekday.Wed);
+export async function getServerSideProps() {
+  const currDate = new Date(Date.now());
+  const currWeekday = getDay(currDate);
+  const classId = 8;
+  const classAvailability = await getClassAvailability(classId, currWeekday);
+
   return {
     props: { classAvailability },
   };

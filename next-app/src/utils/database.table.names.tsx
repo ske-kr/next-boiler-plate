@@ -1,4 +1,6 @@
 // Using variables just in case table names are updated!
 
-export const classesTableName = "classes";
-export const classAvailabilityTableName = "class_availability";
+export const classesTable = "classes";
+export const classAvailabilityTable = "class_availability";
+export const reservationTransactionTable = "reservation_transactions";
+export const usersTable = "users";

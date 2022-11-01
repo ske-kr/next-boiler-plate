@@ -1,4 +1,4 @@
-import { getClassDetails, getClassesList } from "../../src/services/database";
+import { getClassesList } from "../../src/services/database.read.api";
 
 function ClassDetails({ classDetails }: any) {
   return "class details";
@@ -18,14 +18,14 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: any) {
-  const id = context.params.id;
-  const classDetails = await getClassDetails(id);
-  console.log(classDetails);
+// export async function getStaticProps(context: any) {
+//   const id = context.params.id;
+//   const classDetails = await getClassDetails(id);
+//   console.log(classDetails);
 
-  return {
-    props: { classDetails },
-  };
-}
+//   return {
+//     props: { classDetails },
+//   };
+// }
 
 export default ClassDetails;

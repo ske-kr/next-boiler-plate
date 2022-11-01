@@ -1,9 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import axios from "axios";
 import Google from "next-auth/providers/google";
 import Kakao from "next-auth/providers/kakao";
-import { supabaseClient } from "../../../../src/utils/supabase";
+import { supabaseClient } from "../../../../src/utils/supabase.key";
 
 const options = {
   providers: [

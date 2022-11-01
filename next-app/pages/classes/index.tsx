@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getClassesList } from "../../src/services/database";
+import { getClassesList } from "../../src/services/database.read.api";
 import { Classes } from "../../src/utils/database.entities";
 import styles from "../../styles/Home.module.css";
 

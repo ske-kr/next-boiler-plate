@@ -1,8 +1,6 @@
-
-import { Button } from "@mui/material";
+import { Button, Stack } from "@chakra-ui/react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
-import LoginModal from "../components/LoginModal";
 import ModalBase from "../components/ModalBase";
 
 export default function Home() {
@@ -32,9 +30,11 @@ export default function Home() {
           <div>{data?.user?.email}</div>
         </div>
       )}
+
       <button onClick={() => setIsActive(true)}>테스트 버튼</button>
       <ModalBase active={isActive} closeEvent={onClickModalOff}>
-        <LoginModal closeEvent={onClickModalOff} title="Welcome Back">
+        <Stack>
+          {/* closeEvent={onClickModalOff} title="Welcome Back" */}
           <div>
             <Button
               onClick={() => signIn("CredentialsProvider")}
@@ -46,7 +46,7 @@ export default function Home() {
               Sign Out
             </Button>
           </div>
-        </LoginModal>
+        </Stack>
       </ModalBase>
     </div>
   );

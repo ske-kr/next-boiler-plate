@@ -1,16 +1,16 @@
 import { ClassAvailability, Classes } from "../utils/database.entities";
 import {
-  classAvailabilityTableName,
-  classesTableName,
+  classAvailabilityTable,
+  classesTable,
 } from "../utils/database.table.names";
 import { supabaseClient } from "../utils/supabase.key";
 
 export async function getClassesList(): Promise<Classes[]> {
   let { data, error } = await supabaseClient
-    .from<Classes>(classesTableName)
+    .from<Classes>(classesTable)
     .select("*");
-  if (error)
-    throw new Error(`GET / ${classesTableName} error: ${error.message}`);
+
+  if (error) throw new Error(`GET / ${classesTable} error: ${error.message}`);
   if (!data?.length) throw new Error("Data is empty");
   return data;
 }
@@ -20,16 +20,16 @@ export async function getClassAvailability(
   weekday: number
 ): Promise<ClassAvailability[]> {
   let { data, error } = await supabaseClient
-    .from<ClassAvailability>(classAvailabilityTableName)
-    .select("*")
+    .from<ClassAvailability>(classAvailabilityTable)
+    .select("time, info")
     .eq("class_id", classId)
-    .eq("weekday", weekday);
+    .eq("weekday", weekday)
+    .order("time", { ascending: true });
 
-  if (error)
-    throw new Error(
-      `GET /  ${classAvailabilityTableName} error: ${error.message}`
-    );
-  if (!data?.length) throw new Error("Data is empty");
+  if (error) {
+    throw new Error(`GET / ${classAvailabilityTable} error: ${error.message}`);
+  }
+  if (!data?.length) console.log("Data is empty");
   return data;
 }
 
