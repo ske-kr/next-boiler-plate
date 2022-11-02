@@ -1,4 +1,4 @@
-import { getClassesList } from "../../src/services/database.read.api";
+import { getClassesList } from "../../src/services/classes.api";
 
 function ClassDetails({ classDetails }: any) {
   return "class details";

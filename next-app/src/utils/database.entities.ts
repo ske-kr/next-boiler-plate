@@ -37,4 +37,15 @@ export class Users {
   name: string;
   role: string;
   email: string;
+  curr_credits: number;
+  is_influencer: boolean;
+}
+
+export class Memberships {
+  id: number;
+  name: string;
+  credits: number;
+  price: number;
+  payment_url: string;
+  recommendation: string;
 }

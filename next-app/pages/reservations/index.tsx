@@ -2,7 +2,8 @@ import { FormControl, Select } from "@chakra-ui/react";
 import { getDay } from "date-fns";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import { getClassAvailability } from "../../src/services/database.read.api";
+import { getClassAvailability } from "../../src/services/classes.api";
+import styles from "../../styles/Home.module.css";
 
 // TODO:
 // 1. 유저 날짜 선택
@@ -29,7 +30,7 @@ export default function MakeReservation({ classAvailability }) {
   };
 
   return (
-    <>
+    <main className={styles.container}>
       <FormControl>
         <DatePicker
           selected={reserveDate}
@@ -39,7 +40,7 @@ export default function MakeReservation({ classAvailability }) {
 
         <Select placeholder="Select option">{showClassTimeList()}</Select>
       </FormControl>
-    </>
+    </main>
   );
 }
 

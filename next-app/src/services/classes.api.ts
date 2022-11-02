@@ -45,11 +45,4 @@ export async function getClassAvailability(
 //       `
 //     )
 //     .eq("classes_id", classId);
-
-//   if (error)
-//     throw new Error(
-//       `GET / classDetails error: ${(error.message, error.details, error.hint)}`
-//     );
-//   if (!data?.length) throw new Error("Data is empty");
-//   return data[0];
 // }
