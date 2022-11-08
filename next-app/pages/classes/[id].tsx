@@ -1,31 +1,27 @@
-import { getClassesList } from "../../src/services/classes.api";
+import { Button } from "@chakra-ui/react";
+import Link from "next/link";
+import { getClass } from "../../src/services/classes.api";
 
-function ClassDetails({ classDetails }: any) {
-  return "class details";
+function ClassDetails({ gym }: any) {
+  console.log(gym);
+  return (
+    <>
+      <div>{gym.name}</div>
+      <Button>
+        <Link href={`/classes/reserve/${encodeURIComponent(gym.id)}`}>
+          예약하기
+        </Link>
+      </Button>
+    </>
+  );
 }
 
-export async function getStaticPaths() {
-  const classList = await getClassesList();
-  const paths = classList?.map((classes) => {
-    return {
-      params: { id: classes.id.toString() },
-    };
-  });
-
+export async function getServerSideProps(context: any) {
+  const id = context.params.id;
+  const gym = await getClass(id);
   return {
-    paths,
-    fallback: false,
+    props: { gym },
   };
 }
-
-// export async function getStaticProps(context: any) {
-//   const id = context.params.id;
-//   const classDetails = await getClassDetails(id);
-//   console.log(classDetails);
-
-//   return {
-//     props: { classDetails },
-//   };
-// }
 
 export default ClassDetails;

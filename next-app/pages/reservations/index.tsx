@@ -1,56 +1,54 @@
-import { FormControl, Select } from "@chakra-ui/react";
-import { getDay } from "date-fns";
+import { Button } from "@chakra-ui/react";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import DatePicker from "react-datepicker";
-import { getClassAvailability } from "../../src/services/classes.api";
+import { getClassesList } from "../../src/services/classes.api";
+import { Classes } from "../../src/utils/database.entities";
 import styles from "../../styles/Home.module.css";
 
-// TODO:
-// 1. 유저 날짜 선택
-// 2. DB에서 가능한 시간 검색 (filter: class, weekday)
+function ReservationsList({ gymList }) {
+  let [gyms, setGyms] = useState(gymList);
 
-export default function MakeReservation({ classAvailability }) {
-  const currDate = new Date(Date.now());
-  let [classTimes, setClassTimes] = useState(classAvailability);
-  let [reserveDate, setReserveDate] = useState(currDate);
-
-  const getAvailableTimes = async (date) => {
-    const reservationDate = new Date(date);
-    setReserveDate(reservationDate);
-
-    const reservationWeekday = getDay(reservationDate); //get weekday(Sun ~ Sat) of date
-    let newClassTimes = await getClassAvailability(8, reservationWeekday);
-    setClassTimes(newClassTimes);
-  };
-
-  const showClassTimeList = () => {
-    return classTimes.map((exerciseClass) => {
-      return <option>{`${exerciseClass.time}`}</option>;
+  const showGymList = () => {
+    return gyms.map((gym: Classes) => {
+      return (
+        <Button>
+          <Link href={`/classes/${encodeURIComponent(gym.id)}`}>
+            {gym.name}
+          </Link>
+        </Button>
+      );
     });
   };
 
   return (
-    <main className={styles.container}>
-      <FormControl>
-        <DatePicker
-          selected={reserveDate}
-          onChange={(date) => getAvailableTimes(date)}
-          validate={showClassTimeList}
-        />
+    <div className={styles.container}>
+      <h1 className={styles.title}>
+        Welcome to <a href="https://nextjs.org">Next.js!</a>
+      </h1>
 
-        <Select placeholder="Select option">{showClassTimeList()}</Select>
-      </FormControl>
-    </main>
+      <main className={styles.main}>{showGymList()}</main>
+
+      <footer className={styles.footer}>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{" "}
+          <span className={styles.logo}>
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          </span>
+        </a>
+      </footer>
+    </div>
   );
 }
-
 export async function getServerSideProps() {
-  const currDate = new Date(Date.now());
-  const currWeekday = getDay(currDate);
-  const classId = 8;
-  const classAvailability = await getClassAvailability(classId, currWeekday);
-
+  const gymList = await getClassesList();
   return {
-    props: { classAvailability },
+    props: { gymList },
   };
 }
+
+export default ReservationsList;
